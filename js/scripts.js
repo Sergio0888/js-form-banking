@@ -44,6 +44,7 @@ const onTopBalance = (event) => {
 
     let newTransaction = document.createElement('a')
     newTransaction.classList.add('main-box__number-hystory')
+    newTransaction.href = '#'
     newTransaction.textContent = `${account.transactions[total]} на ${account.transAmount[total]} грн id:${account.id[total]}`
     total += 1
     historyEl.appendChild(newTransaction)
@@ -69,5 +70,22 @@ if (account.balance >= Number(inputPriceEl.value)) {
 }
 downBtnEl.addEventListener('click', onDownBalance)
 
- console.log(account.balance);
 
+const onClickLink = document.querySelectorAll('.main-box__number-hystory')
+console.log(onClickLink);
+
+// let lightbox = new SimpleLightbox('.main-box__history a', {sourceAttr: `href`});
+
+
+// const onClickLinks = (event) => {
+
+//   event.preventDefault()
+//   open
+    
+//     if (event.target.nodeName !== 'A') {
+//       return
+//     }
+//     console.log(event.target);
+// }
+
+// historyEl.addEventListener('click', onClickLinks)

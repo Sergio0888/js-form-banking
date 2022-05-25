@@ -10,10 +10,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.10.3/simple-lightbox.css" integrity="sha512-I/31oIfN7Ki1YPEt0Mv9yyKMXkRmI4xKFRvus0plHCFIOaXC3RuBMaG7LQa+L6ZAeNz5NKXlk8Czr11/1/hR5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <header class="main-header">
+        <a target="_blank" href="https://goit.ua/"><img class="login-box__icon margin-ch" src="./images/goit.png" alt=""></a>
+        
+        <ul class="header-box">
+            <li class="header-box__item"><a target="_blank" class="header-box__link" href="https://minfin.com.ua/currency/banks/">Курс валют</a></li>
+            <li class="header-box__item"><a target="_blank" class="header-box__link" href="https://minfin.com.ua/currency/crypto/">Криптовалюта</a></li>
+            <li class="header-box__item"><a target="_blank" class="header-box__link" href="https://minfin.com.ua/invest/">Инвестиции</a></li>
+        </ul>
+        <a class="header-exit" href="./index.html">
+            <svg class="icon-exit">
+                <use href="./images/exit.svg#exit"></use>
+            </svg>
+            Выйти</a>
+    </header>
     <section class="main-section">
-        <img class="login-box__icon" src="./images/goit.png" alt="">
         <div class="main-box__all">
             <p class="main-box__all-text">Ваш баланс:</p>
             <p class="main-box__all-number"><span class="balance">0</span> грн</p>
@@ -30,8 +44,10 @@
             </div>
 
         </div>
+        <div class="modal"></div>
     </section>
     
     <script src="./js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.10.3/simple-lightbox.min.js" integrity="sha512-XGiM73niqHXRwBELBEktUKuGXC9yHyaxEsVWvUiCph8yxkaNkGeXJnqs5Ls1RSp4Q+PITMcCy2Dw7HxkzBWQCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
