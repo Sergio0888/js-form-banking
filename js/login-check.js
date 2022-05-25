@@ -16,7 +16,7 @@ const checkLogin = (event) => {
         return
     }
     openBtnEl.href = '#'
-    return
+    return 
     
 }
 
