@@ -41,6 +41,19 @@ body {
     padding-left: 20px;
 }
 
+.error-text {
+    color: red;
+    position: absolute;
+    bottom: 160px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+}
+.error-text.is-open {
+    visibility: visible;
+    opacity: 1;
+}
+
 .login-form__btn {
     display: flex;
     align-self: center;
