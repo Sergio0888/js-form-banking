@@ -184,6 +184,7 @@ body {
     text-align: center;
     transition: 0.5s;
     color: black;
+    padding: 10px;
 
     animation-name: transaction;
     animation-duration: 1200ms;
@@ -199,11 +200,10 @@ body {
 
 .main-box__number-hystory.deposit {
     background-color: lightgreen;
-    padding: 10px 0;
 }
 .main-box__number-hystory.withdraw {
     background-color: rgb(209 91 91);
-    padding: 10px 0;
+    
 }
 
 
