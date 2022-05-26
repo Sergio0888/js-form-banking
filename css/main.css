@@ -276,7 +276,7 @@ body {
 }
 .box-input {
     cursor: pointer;
-    font-size: 20px;
+    font-size: 28px;
     padding-left: 30px;
     align-self: center;
     margin-top: 50px;
@@ -287,9 +287,26 @@ body {
     border-radius: 10px;
 
 }
+.box-input:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+.box-input:focus-within {
+    border: 3px solid rgb(255, 160, 97);
+    background-color: rgb(208, 208, 208);
+}
+
+.box-input::placeholder {
+    font-size: 20px;
+    font-style: italic;
+}
+
+
 .main-btn.ch-color {
     background-color: rgb(202, 147, 111);
 }
+
+
 
 /* ----------- */
 

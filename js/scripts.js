@@ -102,6 +102,7 @@ downBtnEl.addEventListener('click', onDownBalance)
 
 const onCheckedValue = event => {
   alertPriceEl.classList.remove('is-open')
+  dollarBoxEl.classList.remove('is-open')
 
   const inputValue = (Number(event.target.value))
   const balanceValue = (Number(balanceEl.textContent))
@@ -114,6 +115,7 @@ const onCheckedValue = event => {
     downBtnEl.classList.add('btn-down')
     return
   } 
+
 }
 
 inputPriceEl.addEventListener('input', onCheckedValue)
@@ -121,7 +123,7 @@ inputPriceEl.addEventListener('input', onCheckedValue)
 // Перевод в доллары
 
 const onDollarChange = event => {
-  dollarBoxEl.classList.add('is-open')
+  dollarBoxEl.classList.toggle('is-open')
   balanceDollarEl.textContent = Math.round(account.balance / 33)
 }
 
