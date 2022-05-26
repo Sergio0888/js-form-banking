@@ -1,7 +1,13 @@
 'use strict'
 
+// Переменные
+
 const inputPriceEl = document.querySelector('.box-input')
 let balanceEl = document.querySelector('.balance')
+const balanceBox = document.querySelector('.main-box__all')
+const balanceChangeEl = document.querySelector('.main-box___all-icon')
+const balanceDollarEl = document.querySelector('.balance-dollar')
+const dollarBoxEl = document.querySelector('.main-box__balance-dollar')
 
 const topBtnEl = document.querySelector('.js-btn-top')
 const downBtnEl = document.querySelector('.js-btn-down')
@@ -9,6 +15,9 @@ const downBtnEl = document.querySelector('.js-btn-down')
 const alertPriceEl = document.querySelector('.alert-price')
 
 const historyEl = document.querySelector('.main-box__history')
+const clearHistoryBtn = document.querySelector('.clear-history')
+
+// Главная информация
 
 const account = {
     balance: 0,
@@ -40,6 +49,8 @@ const account = {
 
 let total = 0;
 
+// Операция deposit
+
 const onTopBalance = (event) => {
     account.deposit(Number(inputPriceEl.value))
     balanceEl.textContent = account.balance
@@ -59,7 +70,7 @@ const onTopBalance = (event) => {
 
  topBtnEl.addEventListener('click', onTopBalance)
 
-
+// Операция withdraw
 
 const onDownBalance = (event) => {
     
@@ -87,6 +98,7 @@ const onDownBalance = (event) => {
 
 downBtnEl.addEventListener('click', onDownBalance)
 
+// Инпут, подсвечивание кнопки 
 
 const onCheckedValue = event => {
   alertPriceEl.classList.remove('is-open')
@@ -95,31 +107,33 @@ const onCheckedValue = event => {
   const balanceValue = (Number(balanceEl.textContent))
   
 
-  if (inputValue <= balanceValue) {
+  if (inputValue < balanceValue) {
     downBtnEl.classList.remove('btn-down')
+    return
   } else if (inputValue > balanceValue) {
     downBtnEl.classList.add('btn-down')
     return
-  }
+  } 
 }
 
 inputPriceEl.addEventListener('input', onCheckedValue)
 
-// const onClickLink = document.querySelectorAll('.main-box__number-hystory')
-// console.log(onClickLink);
+// Перевод в доллары
 
-// let lightbox = new SimpleLightbox('.main-box__history a', {sourceAttr: `href`});
+const onDollarChange = event => {
+  dollarBoxEl.classList.add('is-open')
+  balanceDollarEl.textContent = Math.round(account.balance / 33)
+}
 
 
-// const onClickLinks = (event) => {
+balanceChangeEl.addEventListener('click', onDollarChange)
 
-//   event.preventDefault()
-//   open
-    
-//     if (event.target.nodeName !== 'A') {
-//       return
-//     }
-//     console.log(event.target);
-// }
+// Очистка поля транзакций 
 
-// historyEl.addEventListener('click', onClickLinks)
+const onClearHystory = event => {
+  const deleteElements = document.querySelectorAll('.main-box__number-hystory')
+  deleteElements.forEach(el => el.remove())
+}
+
+
+clearHistoryBtn.addEventListener('click', onClearHystory)

@@ -103,7 +103,33 @@ body {
 }
 .main-box__all-number {
     font-size: 45px;
+
 }
+.main-box___all-icon {
+    width: 60px;
+    height: 100px;
+
+    transition-property: transform;
+    transition-duration: 500ms;
+    
+}
+.main-box___all-icon:hover  {
+    transform: rotate(180deg);
+}
+
+.main-box__balance-dollar {
+    font-size: 45px;
+    color: rgb(15, 125, 15);
+    opacity: 0;
+    visibility: hidden;
+    transition: 1.5s;
+}
+.main-box__balance-dollar.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+
 
 
 
@@ -118,9 +144,34 @@ body {
     border: 3px solid rgb(255, 107, 10);
     border-radius: 15px;
     overflow: auto;
+    padding: 10px;
 }
+
+.clear-history {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    width: 150px;
+    cursor: pointer;
+    border: none;
+    border-radius: 15px;
+    background-color: rgb(255, 160, 97);
+    transition: 0.2s;
+
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+}
+.clear-history:hover {
+    background-color:rgb(255, 107, 10) ;
+    transform: scale(1.2);
+}
+
 .main-box__text-hystory {
-    margin-top: 25px;
+    margin-top: 15px;
     text-align: center;
     font-size: 25px;
     font-weight: 700;
@@ -129,19 +180,28 @@ body {
     margin-top: 32px;
     font-size: 20px;
     text-align: center;
-    transition: 0.3s;
+    transition: 0.5s;
     color: black;
+
+    animation-name: transaction;
+    animation-duration: 1200ms;
+}
+@keyframes transaction {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .main-box__number-hystory.deposit {
     background-color: lightgreen;
     padding: 10px 0;
-    width: 85%;
 }
 .main-box__number-hystory.withdraw {
     background-color: rgb(209 91 91);
     padding: 10px 0;
-    width: 85%;
 }
 
 
@@ -219,7 +279,11 @@ body {
     align-self: center;
     margin-top: 50px;
     height: 60px;
-    width: 220px;
+    width: 225px;
+    outline: none;
+    border: 2px solid rgb(255, 160, 97);
+    border-radius: 10px;
+
 }
 .main-btn.ch-color {
     background-color: rgb(202, 147, 111);
