@@ -108,13 +108,16 @@ body {
 .main-box___all-icon {
     width: 60px;
     height: 100px;
+    cursor: pointer;
+    fill: rgba(0, 0, 0, 0.3);
 
-    transition-property: transform;
+    transition-property: transform, fill;
     transition-duration: 500ms;
     
 }
 .main-box___all-icon:hover  {
     transform: rotate(180deg);
+    fill: rgb(0, 0, 0);
 }
 
 .main-box__balance-dollar {
@@ -141,7 +144,7 @@ body {
     top: 200px;
     width: 350px;
     height: 600px;
-    border: 3px solid rgb(255, 107, 10);
+    border: 2px solid black;
     border-radius: 15px;
     overflow: auto;
     padding: 10px;
@@ -156,7 +159,7 @@ body {
     border: none;
     border-radius: 15px;
     background-color: rgb(255, 160, 97);
-    transition: 0.2s;
+    transition: 0.25s;
 
 
     font-family: 'Montserrat', sans-serif;
@@ -167,7 +170,6 @@ body {
 }
 .clear-history:hover {
     background-color:rgb(255, 107, 10) ;
-    transform: scale(1.2);
 }
 
 .main-box__text-hystory {
