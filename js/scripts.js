@@ -6,6 +6,8 @@ let balanceEl = document.querySelector('.balance')
 const topBtnEl = document.querySelector('.js-btn-top')
 const downBtnEl = document.querySelector('.js-btn-down')
 
+const alertPriceEl = document.querySelector('.alert-price')
+
 const historyEl = document.querySelector('.main-box__history')
 
 const account = {
@@ -25,7 +27,7 @@ const account = {
 
     withdraw(amount) {
       if (amount > this.balance) {
-        alert('Снятие суммы невозможно, недостаточно средств')
+        
       } else {
         this.balance -= amount;
         this.transactions.push('Вывод')
@@ -44,10 +46,15 @@ const onTopBalance = (event) => {
 
     let newTransaction = document.createElement('a')
     newTransaction.classList.add('main-box__number-hystory')
+    newTransaction.classList.add('deposit')
     newTransaction.href = '#'
+
     newTransaction.textContent = `${account.transactions[total]} на ${account.transAmount[total]} грн id:${account.id[total]}`
     total += 1
+  
     historyEl.appendChild(newTransaction)
+
+    return inputPriceEl.value = ''
 }
 
  topBtnEl.addEventListener('click', onTopBalance)
@@ -55,23 +62,48 @@ const onTopBalance = (event) => {
 
 
 const onDownBalance = (event) => {
+    
+  if (Number(account.balance) >= Number(inputPriceEl.value)) {
     account.withdraw(Number(inputPriceEl.value))
     balanceEl.textContent = account.balance
+      
+      let newTransaction = document.createElement('a')
+      newTransaction.classList.add('main-box__number-hystory')
+      newTransaction.classList.add('withdraw')
+      newTransaction.href = '#'
 
+      newTransaction.textContent = `${account.transactions[total]} на ${account.transAmount[total]} грн id:${account.id[total]}`
+      total += 1
 
-if (account.balance >= Number(inputPriceEl.value)) {
-    let newTransaction = document.createElement('a')
-    newTransaction.classList.add('main-box__number-hystory')
-    newTransaction.href = '#'
-    newTransaction.textContent = `${account.transactions[total]} на ${account.transAmount[total]} грн id:${account.id[total]}`
-    total += 1
-    historyEl.appendChild(newTransaction)
+      historyEl.appendChild(newTransaction)
+      inputPriceEl.value = ''
+      return 
+  }
+    alertPriceEl.classList.add('is-open')
+    inputPriceEl.value = ''
+    return
+  
 }
 
-
-}
 downBtnEl.addEventListener('click', onDownBalance)
 
+
+const onCheckedValue = event => {
+  alertPriceEl.classList.remove('is-open')
+
+  const inputValue = (Number(event.target.value))
+  const balanceValue = (Number(balanceEl.textContent))
+  
+
+  if (inputValue <= balanceValue) {
+    downBtnEl.classList.remove('btn-down')
+  } else if (inputValue > balanceValue) {
+    downBtnEl.classList.add('btn-down')
+    return
+  }
+}
+
+inputPriceEl.addEventListener('input', onCheckedValue)
 
 // const onClickLink = document.querySelectorAll('.main-box__number-hystory')
 // console.log(onClickLink);
