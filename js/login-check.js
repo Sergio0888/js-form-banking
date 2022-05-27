@@ -13,6 +13,8 @@ const errorBtnEl = document.querySelector('.error-text')
 const checkLogin = (event) => {
     const login = loginFormEl.value.toLowerCase()
     const password = passwordFormEl.value.toLowerCase()
+
+
     if(login === 'admin' && password === 'goit') {
         openBtnEl.href = './main.html'
         return
@@ -22,5 +24,11 @@ const checkLogin = (event) => {
     return
     
 }
+
+document.addEventListener('keydown', event => {
+    if (event.code === 'Enter') {
+        checkLogin(openBtnEl)
+        openBtnEl.click()
+    }});
 
 openBtnEl.addEventListener('click', checkLogin)
