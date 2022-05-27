@@ -139,3 +139,46 @@ const onClearHystory = event => {
 
 
 clearHistoryBtn.addEventListener('click', onClearHystory)
+
+// Модальное меню
+
+const modalMenuBtnEl = document.querySelector('.burger-menu')
+const backdropHistory = document.querySelector('.backdrop')
+const modalMenuHistory = document.querySelector('.modal-menu__history')
+
+
+
+const onOpenModalMenu = event => {
+  backdropHistory.classList.toggle('is-open')
+  modalMenuHistory.classList.toggle('is-open')
+}
+
+modalMenuBtnEl.addEventListener('click', onOpenModalMenu)
+
+const onCheckTransaction = event => {
+  // console.dir(event.target.dataset.action);
+
+  const elementsDeposit = document.querySelectorAll('.deposit')
+  const elementsWithdraw = document.querySelectorAll('.withdraw')
+
+  // console.log(elementsDeposit);
+  // console.log(elementsWithdraw);
+
+  if (event.target.dataset.action === 'top') {
+    console.log();
+    elementsDeposit.forEach(el => el.classList.remove('hidden-transaction'))
+    elementsWithdraw.forEach(el => el.classList.add('hidden-transaction'))
+  } 
+  else if (event.target.dataset.action === 'down') {
+    elementsWithdraw.forEach(el => el.classList.remove('hidden-transaction'))
+    elementsDeposit.forEach(el => el.classList.add('hidden-transaction'))
+  } 
+  else if (event.target.dataset.action === 'all') {
+    elementsDeposit.forEach(el => el.classList.remove('hidden-transaction'))
+    elementsWithdraw.forEach(el => el.classList.remove('hidden-transaction'))
+  }
+  backdropHistory.classList.remove('is-open')
+  modalMenuHistory.classList.remove('is-open')
+}
+
+modalMenuHistory.addEventListener('click', onCheckTransaction)

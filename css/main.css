@@ -100,7 +100,7 @@ body {
     position: relative;
     background-color: rgb(236, 239, 241);
     padding: 60px;
-    height: 100vh;
+    height: 750px;
 }
 .main-box__all {
     position: absolute;
@@ -146,7 +146,7 @@ body {
 }
 
 
-
+/* ИСТОРИЯ ТРАНЗАКЦИЙ */
 
 
 .main-box__history {
@@ -155,12 +155,20 @@ body {
     flex-direction: column;
     align-items: center;
     top: 60px;
-    width: 350px;
-    height: 600px;
+    width: 25%;
+    height: 80%;
     border: 2px solid black;
     border-radius: 15px;
-    overflow: auto;
     padding: 10px;
+
+    overflow: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+}
+
+.main-box__history::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
 .clear-history {
@@ -186,7 +194,7 @@ body {
 }
 
 .main-box__text-hystory {
-    margin-top: 15px;
+    margin-top: 20px;
     text-align: center;
     font-size: 25px;
     font-weight: 700;
@@ -219,9 +227,109 @@ body {
     
 }
 
+.burger-menu {
+    width: 35px;
+    height: 45px;
+    position: absolute;
+    top: 0;
+    left: 30px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.burger-menu:hover {
+    transform: scale(1.2);
+}
+
+
+.backdrop {
+    position: absolute;
+    background-color: rgb(219 229 235 / 80%);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+    z-index: 50;
+}
+.backdrop.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-menu__history {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    width: 100%;
+    height: 55%;
+    border-radius: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+    animation-name: modal-menu-open;
+    z-index: 100;
+}
+@keyframes modal-menu-open {
+    0% {
+        top: -100px;
+    }
+    100% {
+        top: 0;
+    }
+}
+.modal-menu__history.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-menu__history-btn {
+    width: 80%;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 15px;
+    cursor: pointer;
+
+    background-color: rgb(250, 138, 63);
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+    transition: 0.4s;
+}
+
+.modal-menu__history-btn:hover {
+    transform: scale(1.1);
+}
+
+.modal-menu__history-btn.bg-color-green {
+    background-color: #73a773;
+}
+.modal-menu__history-btn.bg-color-green:hover {
+    background-color: #3f933f;
+}
+
+.modal-menu__history-btn.bg-color-red {
+    background-color: rgb(179, 86, 86);
+}
+.modal-menu__history-btn.bg-color-red:hover {
+    background-color: rgb(221 67 67);
+}
+
+
+.hidden-transaction {
+    display: none;
+}
 
 
 
+/*  */
 
 
 

@@ -38,6 +38,15 @@
         </div>
 
         <div class="main-box__history">
+            <div class="backdrop"></div>
+            <div class="modal-menu__history">
+                <button data-action="top" class="modal-menu__history-btn bg-color-green js-modal-btn-top" type="button">Пополнение</button>
+                <button data-action="down" class="modal-menu__history-btn bg-color-red" type="button">Вывод</button>
+                <button data-action="all" class="modal-menu__history-btn" type="button">Все транзакции</button>
+            </div>
+            <svg class="burger-menu">
+                <use class="burger-menu-icon" href="./images/menu-burger.svg#menu"></use>
+            </svg>
             <button class="clear-history">Очистить историю</button>
             <p class="main-box__text-hystory">Истории транзакций:</p>
         </div>
